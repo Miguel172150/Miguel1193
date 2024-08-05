@@ -1,0 +1,66 @@
+1
+let palavra;
+2
+​
+3
+function setup() {
+4
+  createCanvas(400, 400);
+5
+​
+6
+  palavra = palavraAleatoria();
+7
+}
+8
+​
+9
+function palavraAleatoria() {
+10
+  let palavras = ["Caminhante", "Caminho", "Caminha"];
+11
+  return random(palavras);
+12
+}
+13
+​
+14
+function inicializaCores() {
+15
+  background("white");
+16
+  fill("black");
+17
+  textSize(64);
+18
+  textAlign(CENTER, CENTER);
+19
+}
+20
+​
+21
+function palavraParcial(minimo, maximo) {
+22
+  let quantidade = map(mouseX, minimo, maximo, 1, palavra.length);
+23
+  let parcial = palavra.substring(0, quantidade);
+24
+  return parcial;
+25
+}
+26
+​
+27
+function draw() {
+28
+  inicializaCores();
+29
+​
+30
+  let texto = palavraParcial(0, width);
+31
+  text(texto, 200, 200);
+32
+}
+33
+​
